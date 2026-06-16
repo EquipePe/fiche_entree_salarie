@@ -509,88 +509,6 @@
             100% { transform: translateY(110vh) translateX(5px) rotate(5deg) scale(1); opacity: 0; }
         }
 
-        /* ⚽ COUPE DU MONDE 2026 (9 juin - 19 juillet) */
-        .wc-ball {
-            font-size: 30px;
-            animation: wc-ball-fall linear infinite;
-            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.35));
-        }
-        @keyframes wc-ball-fall {
-            0%   { transform: translateY(-10vh) translateX(0) rotate(0deg); opacity: 0; }
-            8%   { opacity: 1; }
-            20%  { transform: translateY(20vh) translateX(50px) rotate(72deg); }
-            40%  { transform: translateY(40vh) translateX(-40px) rotate(144deg); }
-            60%  { transform: translateY(60vh) translateX(60px) rotate(216deg); }
-            80%  { transform: translateY(80vh) translateX(-30px) rotate(288deg); }
-            92%  { opacity: 1; }
-            100% { transform: translateY(112vh) translateX(0) rotate(360deg); opacity: 0; }
-        }
-        .wc-trophy {
-            font-size: 34px;
-            animation: wc-trophy-fall linear infinite;
-            filter: drop-shadow(0 0 12px rgba(255,215,0,0.8));
-        }
-        @keyframes wc-trophy-fall {
-            0%   { transform: translateY(-10vh) rotate(-15deg) scale(0.8); opacity: 0; }
-            8%   { opacity: 1; }
-            25%  { transform: translateY(25vh) translateX(35px) rotate(10deg) scale(1); }
-            50%  { transform: translateY(50vh) translateX(-30px) rotate(-8deg) scale(1.1); }
-            75%  { transform: translateY(75vh) translateX(25px) rotate(12deg) scale(0.95); }
-            92%  { opacity: 1; }
-            100% { transform: translateY(112vh) rotate(-15deg) scale(0.8); opacity: 0; }
-        }
-        .wc-confetti {
-            position: absolute;
-            border-radius: 2px;
-            animation: wc-confetti-spin linear infinite;
-        }
-        @keyframes wc-confetti-spin {
-            0%   { transform: translateY(-10vh) rotate(0deg) scaleX(1); opacity: 0; }
-            8%   { opacity: 1; }
-            30%  { transform: translateY(30vh) translateX(40px) rotate(270deg) scaleX(-1); }
-            60%  { transform: translateY(60vh) translateX(-30px) rotate(540deg) scaleX(1); }
-            90%  { opacity: 1; }
-            100% { transform: translateY(112vh) rotate(720deg); opacity: 0; }
-        }
-        .wc-trophy-banner {
-            position: absolute;
-            top: 18px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 100%);
-            border: 2px solid rgba(255,215,0,0.8);
-            border-radius: 50px;
-            padding: 10px 28px;
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #FFD700;
-            text-shadow: 0 0 15px rgba(255,215,0,0.9), 0 0 30px rgba(255,165,0,0.6);
-            box-shadow: 0 0 20px rgba(255,215,0,0.4), inset 0 0 20px rgba(255,215,0,0.05);
-            pointer-events: none;
-            white-space: nowrap;
-            animation: wc-banner-pulse 3s ease-in-out infinite;
-            backdrop-filter: blur(4px);
-        }
-        @keyframes wc-banner-pulse {
-            0%, 100% { opacity: 0.9;  box-shadow: 0 0 20px rgba(255,215,0,0.4); border-color: rgba(255,215,0,0.8); }
-            50%       { opacity: 1;   box-shadow: 0 0 35px rgba(255,215,0,0.7); border-color: rgba(255,215,0,1); }
-        }
-        .wc-sun {
-            position: absolute;
-            top: 55px; right: 110px;
-            width: 75px; height: 75px;
-            background: radial-gradient(circle, #FFF176 0%, #FFD700 50%, #FFA500 100%);
-            border-radius: 50%;
-            box-shadow: 0 0 50px 15px rgba(255,215,0,0.5);
-            animation: wc-sun-pulse 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-        @keyframes wc-sun-pulse {
-            0%, 100% { transform: scale(1);    box-shadow: 0 0 50px 15px rgba(255,215,0,0.5); }
-            50%       { transform: scale(1.08); box-shadow: 0 0 70px 25px rgba(255,215,0,0.75); }
-        }
-
         /* 📚 SEPTEMBRE : Rentrée scolaire */
         .rentree-particle {
             font-size: 22px;
@@ -1616,33 +1534,31 @@
                             </div>
 
                             <!-- LIGNE 6: Numéro sécu, Clé -->
-                            <div id="bloc_secu">
-                                <div class="form-grid">
-                                    <div class="form-group">
-                                        <label>Numéro de sécurité sociale</label>
-                                        <input type="text" name="numero_secu" id="numero_secu" placeholder="13 chiffres" maxlength="13" onblur="validerNIR()">
-                                        <div id="alerte_nir" style="display:none;margin-top:6px;padding:8px 12px;border-radius:8px;font-size:13px;"></div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Clé <button type="button" class="info-btn" onclick="this.classList.toggle('active')" onblur="this.classList.remove('active')"><span class="info-popup">La clé est obligatoire si vous avez renseigné le numéro de sécurité sociale. Il s'agit des 2 derniers chiffres figurant sur la carte Vitale, après les 13 chiffres du numéro.</span>i</button></label>
-                                        <input type="text" name="cle_secu" id="cle_secu" maxlength="2" onblur="validerNIR()">
-                                        <div id="alerte_cle_nir" style="display:none;margin-top:6px;padding:8px 12px;border-radius:8px;font-size:13px;"></div>
-                                    </div>
+                            <div class="form-grid">
+                                <div class="form-group full-width">
+                                    <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:500;">
+                                        <input type="checkbox" id="sans_secu_fr" name="sans_secu_fr" onchange="toggleSecu(this)" style="width:16px;height:16px;accent-color:#4f46e5;cursor:pointer;">
+                                        Le salarié n'a pas (encore) de numéro de sécurité sociale français
+                                        <button type="button" class="info-btn" onclick="this.classList.toggle('active')" onblur="this.classList.remove('active')"><span class="info-popup">Cochez cette case si le salarié est étranger en attente de numéro, en détachement, ou en cours d'immatriculation.</span>i</button>
+                                    </label>
                                 </div>
                             </div>
-                            <div style="margin-top:8px;">
-                                <label style="display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#6b7280;font-weight:500;padding:6px 10px;border-radius:8px;background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);">
-                                    <input type="checkbox" id="sans_secu_fr" name="sans_secu_fr" onchange="toggleSecu(this)" style="width:14px;height:14px;accent-color:#4f46e5;cursor:pointer;flex-shrink:0;">
-                                    Le salarié n'a pas (encore) de numéro de sécurité sociale français
-                                    <button type="button" class="info-btn" onclick="this.classList.toggle('active')" onblur="this.classList.remove('active')"><span class="info-popup">Cochez cette case si le salarié est étranger en attente de numéro ou en cours d'immatriculation à la CPAM.</span>i</button>
-                                </label>
+                            <div class="form-grid" id="bloc_secu">
+                                <div class="form-group">
+                                    <label>Numéro de sécurité sociale</label>
+                                    <input type="text" name="numero_secu" id="numero_secu" placeholder="13 chiffres" maxlength="13" onblur="validerNIR()">
+                                    <div id="alerte_nir" style="display:none;margin-top:6px;padding:8px 12px;border-radius:8px;font-size:13px;"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Clé <button type="button" class="info-btn" onclick="this.classList.toggle('active')" onblur="this.classList.remove('active')"><span class="info-popup">La clé est obligatoire si vous avez renseigné le numéro de sécurité sociale. Il s'agit des 2 derniers chiffres figurant sur la carte Vitale, après les 13 chiffres du numéro.</span>i</button></label>
+                                    <input type="text" name="cle_secu" id="cle_secu" maxlength="2" onblur="validerNIR()">
+                                    <div id="alerte_cle_nir" style="display:none;margin-top:6px;padding:8px 12px;border-radius:8px;font-size:13px;"></div>
+                                </div>
                             </div>
                             <div id="bloc_sans_secu" style="display:none;margin-top:8px;">
-                                <div class="form-grid">
-                                    <div class="form-group" style="grid-column:1/-1;">
-                                        <label>Précisez la situation <span style="color:#6b7280;font-weight:400;">(optionnel)</span></label>
-                                        <input type="text" name="commentaire_secu" id="commentaire_secu" placeholder="Ex : En attente de numéro définitif ">
-                                    </div>
+                                <div class="form-group">
+                                    <label>Commentaire / situation <span style="color:#6b7280;font-weight:400;">(optionnel)</span></label>
+                                    <input type="text" name="commentaire_secu" id="commentaire_secu" placeholder="Ex : En attente de numéro définitif.">
                                 </div>
                             </div>
                         </div>
@@ -2667,44 +2583,6 @@
                 particleContent = ['🌿','☘️','🌱','💮','🤍','💮','🌿','💮'];
                 particleCount = 30;
                 animationDuration = [10, 18];
-
-            // ─────────────────────────────────────────────
-            // ⚽ COUPE DU MONDE 2026 : 9 juin - 19 juillet
-            // ─────────────────────────────────────────────
-            } else if (!testMonth && new Date() >= new Date(2026, 5, 9) && new Date() < new Date(2026, 6, 20)) {
-                bgAnimation.style.background = 'linear-gradient(160deg, #1a6aba 0%, #2e8fd4 30%, #87CEEB 70%, #b8e4f9 100%)';
-                document.body.style.background = bgAnimation.style.background;
-                const sunWC = document.createElement('div'); sunWC.className = 'wc-sun'; bgAnimation.appendChild(sunWC);
-                const bannerWC = document.createElement('div'); bannerWC.className = 'wc-trophy-banner';
-                bannerWC.textContent = '🏆 FIFA World Cup 2026 🏆'; bgAnimation.appendChild(bannerWC);
-                for (let i = 0; i < 20; i++) {
-                    const b = document.createElement('div'); b.className = 'seasonal-particle wc-ball';
-                    b.textContent = '⚽'; b.style.left = Math.random() * 100 + '%';
-                    const d = 7 + Math.random() * 8; b.style.animationDuration = d + 's';
-                    b.style.animationDelay = (Math.random() * d) + 's';
-                    b.style.transform = 'scale(' + (0.6 + Math.random() * 0.9) + ')';
-                    bgAnimation.appendChild(b);
-                }
-                for (let i = 0; i < 12; i++) {
-                    const t = document.createElement('div'); t.className = 'seasonal-particle wc-trophy';
-                    t.textContent = '🏆'; t.style.left = Math.random() * 100 + '%';
-                    const d = 9 + Math.random() * 10; t.style.animationDuration = d + 's';
-                    t.style.animationDelay = (Math.random() * d) + 's';
-                    t.style.transform = 'scale(' + (0.5 + Math.random() * 0.8) + ')';
-                    bgAnimation.appendChild(t);
-                }
-                const wcColors = ['#FFD700','#FFA500','#FF4444','#4488FF','#FFFFFF','#FF8800'];
-                for (let i = 0; i < 35; i++) {
-                    const c = document.createElement('div'); c.className = 'wc-confetti';
-                    c.style.background = wcColors[Math.floor(Math.random() * wcColors.length)];
-                    c.style.left = Math.random() * 100 + '%';
-                    const d = 6 + Math.random() * 9; c.style.animationDuration = d + 's';
-                    c.style.animationDelay = (Math.random() * d) + 's';
-                    c.style.width = (7 + Math.random() * 9) + 'px'; c.style.height = (7 + Math.random() * 9) + 'px';
-                    c.style.borderRadius = Math.random() < 0.5 ? '50%' : '2px';
-                    bgAnimation.appendChild(c);
-                }
-                return;
 
             // ─────────────────────────────────────────────
             // 🏖️ JUIN-AOÛT : Été ensoleillé (inchangé)
@@ -43629,17 +43507,6 @@ console.log('✅ 39192 codes postaux chargés');
         @keyframes bonneannee-pulse { 0%,100%{text-shadow:0 0 20px rgba(255,215,0,.6),0 0 40px rgba(255,165,0,.4);transform:translateX(-50%) scale(1)} 50%{text-shadow:0 0 30px rgba(255,215,0,.9),0 0 60px rgba(255,165,0,.6);transform:translateX(-50%) scale(1.05)} }
         @keyframes fw-spark { 0%{transform:translate(0,0);opacity:1} 100%{transform:translate(var(--tx),var(--ty));opacity:0} }
         @keyframes fw-flash { 0%{opacity:1;transform:scale(1)} 100%{opacity:0;transform:scale(3)} }
-        /* ⚽ COUPE DU MONDE 2026 */
-        .wc-ball { font-size:30px;animation:wc-ball-fall linear infinite;filter:drop-shadow(0 4px 10px rgba(0,0,0,.35)); }
-        @keyframes wc-ball-fall { 0%{transform:translateY(-10vh) translateX(0) rotate(0deg);opacity:0} 8%{opacity:1} 20%{transform:translateY(20vh) translateX(50px) rotate(72deg)} 40%{transform:translateY(40vh) translateX(-40px) rotate(144deg)} 60%{transform:translateY(60vh) translateX(60px) rotate(216deg)} 80%{transform:translateY(80vh) translateX(-30px) rotate(288deg)} 92%{opacity:1} 100%{transform:translateY(112vh) translateX(0) rotate(360deg);opacity:0} }
-        .wc-trophy { font-size:34px;animation:wc-trophy-fall linear infinite;filter:drop-shadow(0 0 12px rgba(255,215,0,.8)); }
-        @keyframes wc-trophy-fall { 0%{transform:translateY(-10vh) rotate(-15deg) scale(.8);opacity:0} 8%{opacity:1} 25%{transform:translateY(25vh) translateX(35px) rotate(10deg) scale(1)} 50%{transform:translateY(50vh) translateX(-30px) rotate(-8deg) scale(1.1)} 75%{transform:translateY(75vh) translateX(25px) rotate(12deg) scale(.95)} 92%{opacity:1} 100%{transform:translateY(112vh) rotate(-15deg) scale(.8);opacity:0} }
-        .wc-confetti { position:absolute;border-radius:2px;animation:wc-confetti-spin linear infinite; }
-        @keyframes wc-confetti-spin { 0%{transform:translateY(-10vh) rotate(0deg) scaleX(1);opacity:0} 8%{opacity:1} 30%{transform:translateY(30vh) translateX(40px) rotate(270deg) scaleX(-1)} 60%{transform:translateY(60vh) translateX(-30px) rotate(540deg) scaleX(1)} 90%{opacity:1} 100%{transform:translateY(112vh) rotate(720deg);opacity:0} }
-        .wc-trophy-banner { position:absolute;top:18px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.4) 100%);border:2px solid rgba(255,215,0,.8);border-radius:50px;padding:10px 28px;font-size:18px;font-weight:800;letter-spacing:2px;color:#FFD700;text-shadow:0 0 15px rgba(255,215,0,.9),0 0 30px rgba(255,165,0,.6);box-shadow:0 0 20px rgba(255,215,0,.4);pointer-events:none;white-space:nowrap;animation:wc-banner-pulse 3s ease-in-out infinite;backdrop-filter:blur(4px); }
-        @keyframes wc-banner-pulse { 0%,100%{opacity:.9;box-shadow:0 0 20px rgba(255,215,0,.4);border-color:rgba(255,215,0,.8)} 50%{opacity:1;box-shadow:0 0 35px rgba(255,215,0,.7);border-color:rgba(255,215,0,1)} }
-        .wc-sun { position:absolute;top:55px;right:110px;width:75px;height:75px;background:radial-gradient(circle,#FFF176 0%,#FFD700 50%,#FFA500 100%);border-radius:50%;box-shadow:0 0 50px 15px rgba(255,215,0,.5);animation:wc-sun-pulse 4s ease-in-out infinite;pointer-events:none; }
-        @keyframes wc-sun-pulse { 0%,100%{transform:scale(1);box-shadow:0 0 50px 15px rgba(255,215,0,.5)} 50%{transform:scale(1.08);box-shadow:0 0 70px 25px rgba(255,215,0,.75)} }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"><\/script>
 </head>
@@ -43826,7 +43693,7 @@ console.log('✅ 39192 codes postaux chargés');
                         <div class="input-value ${data.sans_secu_fr === 'on' ? 'empty' : (data.numero_secu ? '' : 'empty')}">
                             ${data.sans_secu_fr === 'on'
                                 ? '⚠️ Pas de numéro SS français' + (data.commentaire_secu ? ' — ' + data.commentaire_secu : '')
-                                : (data.numero_secu || 'Non renseigné')}
+                                : (data.numero_secu ? data.numero_secu + (data.cle_secu ? ' (clé : ' + data.cle_secu + ')' : '') : 'Non renseigné')}
                         </div>
                     </div>
                 </div>
@@ -44474,15 +44341,6 @@ console.log('✅ 39192 codes postaux chargés');
                 bg.style.background = 'linear-gradient(to bottom,#c8f0c8 0%,#e8f8e0 50%,#f5fff0 100%)';
                 document.body.style.background = bg.style.background;
                 particleType='muguet-particle'; particleContent=['🌿','☘️','🌱','💮','🤍','💮','🌿','💮']; particleCount=30; animDuration=[10,18];
-            } else if (!testMonth && new Date() >= new Date(2026, 5, 9) && new Date() < new Date(2026, 6, 20)) {
-                bg.style.background='linear-gradient(160deg,#1a6aba 0%,#2e8fd4 30%,#87CEEB 70%,#b8e4f9 100%)';
-                document.body.style.background=bg.style.background;
-                const sunWC2=document.createElement('div');sunWC2.className='wc-sun';bg.appendChild(sunWC2);
-                for(let i=0;i<20;i++){const b=document.createElement('div');b.className='seasonal-particle wc-ball';b.textContent='⚽';b.style.left=Math.random()*100+'%';const d=7+Math.random()*8;b.style.animationDuration=d+'s';b.style.animationDelay=(Math.random()*d)+'s';b.style.transform='scale('+(0.6+Math.random()*0.9)+')';bg.appendChild(b);}
-                for(let i=0;i<12;i++){const t=document.createElement('div');t.className='seasonal-particle wc-trophy';t.textContent='🏆';t.style.left=Math.random()*100+'%';const d=9+Math.random()*10;t.style.animationDuration=d+'s';t.style.animationDelay=(Math.random()*d)+'s';t.style.transform='scale('+(0.5+Math.random()*0.8)+')';bg.appendChild(t);}
-                const wcColors2=['#FFD700','#FFA500','#FF4444','#4488FF','#FFFFFF','#FF8800'];
-                for(let i=0;i<35;i++){const c=document.createElement('div');c.className='wc-confetti';c.style.background=wcColors2[Math.floor(Math.random()*wcColors2.length)];c.style.left=Math.random()*100+'%';const d=6+Math.random()*9;c.style.animationDuration=d+'s';c.style.animationDelay=(Math.random()*d)+'s';c.style.width=(7+Math.random()*9)+'px';c.style.height=(7+Math.random()*9)+'px';c.style.borderRadius=Math.random()<0.5?'50%':'2px';bg.appendChild(c);}
-                return;
             } else if (month >= 6 && month <= 8) {
                 bg.style.background = 'linear-gradient(to bottom,#87CEEB 0%,#E0F6FF 100%)';
                 const sun=document.createElement('div');sun.className='summer-sun';bg.appendChild(sun); return;
@@ -44545,28 +44403,29 @@ console.log('✅ 39192 codes postaux chargés');
         }
 
         function toggleSecu(cb) {
-            const blocSecu   = document.getElementById('bloc_secu');
-            const blocSans   = document.getElementById('bloc_sans_secu');
-            const secu       = document.getElementById('numero_secu');
-            const cle        = document.getElementById('cle_secu');
-            const alerte     = document.getElementById('alerte_nir');
-            const alerteCle  = document.getElementById('alerte_cle_nir');
+            const blocSecu = document.getElementById('bloc_secu');
+            const blocSans = document.getElementById('bloc_sans_secu');
+            const secu = document.getElementById('numero_secu');
+            const cle = document.getElementById('cle_secu');
+            const alerte = document.getElementById('alerte_nir');
+            const alerteCle = document.getElementById('alerte_cle_nir');
             if (cb.checked) {
                 blocSecu.style.display = 'none';
                 blocSans.style.display = 'block';
-                if (secu)     { secu.value = ''; secu.style.borderColor = ''; }
-                if (cle)      { cle.value  = ''; cle.style.borderColor  = ''; }
-                if (alerte)    alerte.style.display = 'none';
+                // Vider et désactiver la validation
+                if (secu) { secu.value = ''; secu.style.borderColor = ''; }
+                if (cle)  { cle.value  = ''; cle.style.borderColor  = ''; }
+                if (alerte) alerte.style.display = 'none';
                 if (alerteCle) alerteCle.style.display = 'none';
                 nirErreur = false; cleErreur = false;
             } else {
-                blocSecu.style.display = 'block';
+                blocSecu.style.display = '';
                 blocSans.style.display = 'none';
             }
         }
 
         function validerNIR() {
-            // Case cochée → validation désactivée
+            // Si la case "pas de numéro FR" est cochée → on ne valide pas
             const sansFr = document.getElementById('sans_secu_fr');
             if (sansFr && sansFr.checked) { nirErreur = false; cleErreur = false; return; }
 
